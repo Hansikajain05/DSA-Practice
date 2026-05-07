@@ -1,4 +1,3 @@
-
 class Solution(object):
     def maxProduct(self, nums):
         max_prod = nums[0]
