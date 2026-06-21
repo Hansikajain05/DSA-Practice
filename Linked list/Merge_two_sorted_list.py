@@ -1,28 +1,15 @@
-class ListNode(object):
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-        
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
 
-        nums = []
+        if not list1:
+            return list2
 
-        while list1:
-            nums.append(list1.val)
-            list1 = list1.next
+        if not list2:
+            return list1
 
-        while list2:
-            nums.append(list2.val)
-            list2 = list2.next
-
-        nums.sort()
-
-        dummy = ListNode(0)
-        curr = dummy
-
-        for num in nums:
-            curr.next = ListNode(num)
-            curr = curr.next
-
-        return dummy.next
+        if list1.val < list2.val:
+            list1.next = self.mergeTwoLists(list1.next, list2)
+            return list1
+        else:
+            list2.next = self.mergeTwoLists(list1, list2.next)
+            return list2
