@@ -1,3 +1,4 @@
+# Check if Array is Good
 class Solution:
     def isGood(self, nums):
         nums.sort()
